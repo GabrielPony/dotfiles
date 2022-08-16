@@ -4,7 +4,6 @@ return require('packer').startup(function()
     -- ColorScheme--
     use {
         'folke/tokyonight.nvim',
-        vim.cmd[[colorscheme tokyonight]]
     }
     -- Nvim Tree--
     use { --
@@ -19,13 +18,25 @@ return require('packer').startup(function()
     
     use {
         'kdheepak/tabline.nvim',
-        vim.cmd[[set guioptions-=e " Use showtabline in gui vim set sessionoptions+=tabpages,globals " store tabpages and globals in session   ]],
         requires = { { 'hoob3rt/lualine.nvim', opt=true }, {'kyazdani42/nvim-web-devicons', opt = true} }
     }
+    use {
+        'nvim-telescope/telescope.nvim', tag = '0.1.0',
+        -- or                            , branch = '0.1.x',
+        requires = { {'nvim-lua/plenary.nvim'} }
+    }
+    use {
+        "williamboman/nvim-lsp-installer",
+        "neovim/nvim-lspconfig",
+    }
+    use {
+        'stevearc/aerial.nvim',
+    }
 
-    --use {
-    --  'stevearc/aerial.nvim',
-    --   require('aerial').setup()
-    --}
+    use {
+        'neoclide/coc.nvim',
+        branch = 'release'
+    }
+
 end)
 

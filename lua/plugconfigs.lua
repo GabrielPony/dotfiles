@@ -1,6 +1,3 @@
---color scheme--
-
-
 -- OR setup with some options
 require("nvim-tree").setup({
   sort_by = "case_sensitive",
@@ -19,13 +16,14 @@ require("nvim-tree").setup({
     dotfiles = true,
   },
 })
-
+-- lualine setting --
 require('lualine').setup {
     options = {
         theme = 'onedark'
     }
 }
 
+-- tabline setting --
 require'tabline'.setup {
       -- Defaults configuration options
       enable = true,
@@ -44,3 +42,33 @@ require'tabline'.setup {
         show_tabs_only = false, -- this shows only tabs instead of tabs + buffers
       }
 }
+
+vim.cmd[[set guioptions-=e " Use showtabline in gui vim set sessionoptions+=tabpages,globals " store tabpages and globals in session   ]]
+
+-- theme setting--
+vim.cmd[[colorscheme tokyonight]]
+
+--telescope --
+require('telescope').setup{
+  defaults = {
+    mappings = {
+      i = {
+        ["<C-h>"] = "which_key"
+      }
+    }
+  },
+  pickers = {
+  },
+  extensions = {
+  }
+}
+
+-- lsp setting --
+require("nvim-lsp-installer").setup {}
+
+
+-- lsp aerial --
+require('aerial').setup()
+
+
+

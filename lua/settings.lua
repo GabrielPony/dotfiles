@@ -7,7 +7,12 @@ vim.o.shiftwidth = 4
 vim.o.tabstop = 4
 vim.o.termguicolors = true
 vim.o.cursorline = true
-
+vim.o.clipboard = 'unnamedplus'
+vim.o.showmode = true --右下角显示模式
+vim.o.mouse = 'a' --允许鼠标
+vim.o.shiftwidth = 4 --每次Shift调整的缩进
+vim.o.autoindent = true --自动缩进
 vim.g.mapleader = ' '
+
 
 
