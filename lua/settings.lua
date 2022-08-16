@@ -9,3 +9,5 @@ vim.o.termguicolors = true
 vim.o.cursorline = true
 
 vim.g.mapleader = ' '
+
+

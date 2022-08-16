@@ -1,4 +1,4 @@
 require("keybindings")
 require("settings")
 require("plugs")
-require("plugconfigs")
+require("plugconfigs") 
