@@ -12,7 +12,5 @@ vim.o.showmode = true --右下角显示模式
 vim.o.mouse = 'a' --允许鼠标
 vim.o.shiftwidth = 4 --每次Shift调整的缩进
 vim.o.autoindent = true --自动缩进
-vim.g.mapleader = ' '
-
-
-
+vim.g.mapleader = "/<space>"
+vim.g.maplocalleader = "/<space>"

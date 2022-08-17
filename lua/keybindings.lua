@@ -1,3 +1,5 @@
+local opts = { noremap = true, silent = true }
+
 local function map(mode, lhs, rhs, opts)
     local options = { noremap = true }
     if opts then
@@ -5,15 +7,20 @@ local function map(mode, lhs, rhs, opts)
     end
     vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
-
-map("i", "jk", "<ESC>", { silent = true })
+-- esc 
+map("i", "jk", "<ESC>", opts)
+map("v", "jk", "<ESC>", opts)
 -- Tab> to navigate the completion menu
-map('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<Tab>"', {expr = true})
+map('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<Tab>"', opts)
 -- map('i', '<Tab>', 'pumvisible() ? "\\<C-n>" : "\\<Tab>"', {expr = true})
-vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
-map('n', '<F2>', ":NvimTreeToggle<cr>",{})
-map('n', ';f', ":FZF<cr>",{})
-map('n', 'w=',":resize +3<cr>",{})
-map('n', 'w-',' :resize -3<cr>',{})
-map('n', 'w,',":vert resize -3<cr>",{})
-map('n', 'w.',":vert resize +3<cr>",{})
+-- map('n', '<F2>', ":NvimTreeToggle<cr>",{})
+
+
+map('n', 'nt', ":NvimTreeToggle<cr>", opts)
+map('n', 'nw', "<C-w><C-w>",opts)
+map('n', "tg", ":Telescope live_grep<cr>", opts)
+map('n', "tf", ":Telescope find_files<cr>", opts)
+
+map('n', "<S-j>", "15j", opts)
+map('n', "<S-k>", "15k", opts)
+
