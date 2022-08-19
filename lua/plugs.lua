@@ -11,11 +11,18 @@ return require('packer').startup(function()
         requires = 'kyazdani42/nvim-web-devicons', 
     	tag = 'nightly'
     }
+    -- lualine plugin -- 
     use {
         'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
-    
+    -- bufferline plugin --
+    use {
+        'akinsho/bufferline.nvim', 
+        tag = "v2.*", 
+        requires = 'kyazdani42/nvim-web-devicons'
+    }
+
     use {
         'kdheepak/tabline.nvim',
         requires = { { 'hoob3rt/lualine.nvim', opt=true }, {'kyazdani42/nvim-web-devicons', opt = true} }
@@ -39,7 +46,16 @@ return require('packer').startup(function()
     }
     use {
         'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpdate'
+        run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
+    }
+    use {
+        'goolord/alpha-nvim',
+        config = function ()
+            require'alpha'.setup(require'alpha.themes.dashboard'.config)
+        end
+    }
+    use {
+        "ray-x/lsp_signature.nvim",
     }
 end)
 
