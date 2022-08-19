@@ -16,7 +16,7 @@ require("nvim-tree").setup({
     dotfiles = true,
   },
 })
-
+requ
 -- lualine setting --
 --require('lualine').setup {
 --    options = {
@@ -184,3 +184,8 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 
+--vim.g.coc_global_extensions = [
+--    'coc-json', 
+--    'coc-vimlsp'
+--    'coc-marketplace'
+--]
