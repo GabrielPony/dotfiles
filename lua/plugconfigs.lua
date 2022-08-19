@@ -16,7 +16,6 @@ require("nvim-tree").setup({
     dotfiles = true,
   },
 })
-requ
 -- lualine setting --
 --require('lualine').setup {
 --    options = {
