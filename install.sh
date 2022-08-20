@@ -12,6 +12,7 @@ sudo apt-get install nodejs-dev node-gyp libssl1.0-dev
 sudo apt-get install npm
 sudo sudo npm install -g yarn
 yarn global add tree-sitter-cli
+sudo apt-get install ripgrep
 npm i -g pyright
 
 echo "Install the neovim..."
