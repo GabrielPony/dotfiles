@@ -13,6 +13,8 @@ sudo apt-get install npm
 sudo sudo npm install -g yarn
 yarn global add tree-sitter-cli
 sudo apt-get install ripgrep
+sudo apt-get install cargo
+cargo install clang_format
 npm i -g pyright
 
 echo "Install the neovim..."
