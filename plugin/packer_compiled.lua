@@ -79,6 +79,11 @@ _G.packer_plugins = {
     path = "/home/tsdl/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  ["aerial.nvim"] = {
+    loaded = true,
+    path = "/home/tsdl/.local/share/nvim/site/pack/packer/start/aerial.nvim",
+    url = "https://github.com/stevearc/aerial.nvim"
+  },
   ["alpha-nvim"] = {
     loaded = true,
     path = "/home/tsdl/.local/share/nvim/site/pack/packer/start/alpha-nvim",
@@ -114,10 +119,10 @@ _G.packer_plugins = {
     path = "/home/tsdl/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
-  ["darkplus.nvim"] = {
+  everforest = {
     loaded = true,
-    path = "/home/tsdl/.local/share/nvim/site/pack/packer/start/darkplus.nvim",
-    url = "https://github.com/lunarvim/darkplus.nvim"
+    path = "/home/tsdl/.local/share/nvim/site/pack/packer/start/everforest",
+    url = "https://github.com/sainnhe/everforest"
   },
   ["friendly-snippets"] = {
     loaded = true,
@@ -144,11 +149,6 @@ _G.packer_plugins = {
     path = "/home/tsdl/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
-  ["null-ls.nvim"] = {
-    loaded = true,
-    path = "/home/tsdl/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
-    url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
-  },
   ["nvim-autopairs"] = {
     loaded = true,
     path = "/home/tsdl/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
@@ -158,16 +158,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/tsdl/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
-  },
-  ["nvim-lsp-installer"] = {
-    loaded = true,
-    path = "/home/tsdl/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer",
-    url = "https://github.com/williamboman/nvim-lsp-installer"
-  },
-  ["nvim-lspconfig"] = {
-    loaded = true,
-    path = "/home/tsdl/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
-    url = "https://github.com/neovim/nvim-lspconfig"
   },
   ["nvim-tree.lua"] = {
     loaded = true,
@@ -213,11 +203,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/tsdl/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
-  },
-  ["tokyonight.nvim"] = {
-    loaded = true,
-    path = "/home/tsdl/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
-    url = "https://github.com/folke/tokyonight.nvim"
   },
   ["vim-bbye"] = {
     loaded = true,
