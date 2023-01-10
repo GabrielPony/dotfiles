@@ -1,7 +1,7 @@
 let mapleader = " "
 inoremap jk <ESC>
 
-
+noremap <leader>c <C-w>c
 nnoremap <leader>q :q!<CR>
 nnoremap <leader>w :w!<CR>
 nnoremap <leader>i :PlugInstall<CR>
