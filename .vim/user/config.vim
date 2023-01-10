@@ -6,6 +6,7 @@ set relativenumber
 set timeoutlen=100
 set termguicolors
 
+" colorscheme
 let g:tokyonight_style = 'storm' " available: night, storm
 let g:tokyonight_enable_italic = 1
 let g:tokyonight_transparent_background = 1 
@@ -16,3 +17,6 @@ colorscheme tokyonight
 "let g:airline_theme='afterglow'
 "let g:afterglow_inherit_background=1
 "colorscheme afterglow
+
+" NERDTree
+let NERDTreeShowHidden=1
