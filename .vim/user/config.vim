@@ -1,6 +1,7 @@
 set sw=4
 set ts=4
 set nu 
+set cursorline
 set relativenumber
 set timeoutlen=100
 colorscheme afterglow
