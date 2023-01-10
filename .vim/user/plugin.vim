@@ -5,6 +5,9 @@ Plug 'vim-airline/vim-airline'
 Plug 'preservim/nerdtree'
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 Plug 'ghifarit53/tokyonight-vim'
+Plug 'easymotion/vim-easymotion'
+Plug 'preservim/tagbar'
+
 
 call plug#end()
 
