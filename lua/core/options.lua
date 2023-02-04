@@ -12,7 +12,7 @@ local options = {
       smartcase= true,
       autoindent= true,
       -- 	nocompatible= true,
-      list= true,
+      -- list= true,
       hidden= true,
       mouse ="",
       -- Interface

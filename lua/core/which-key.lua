@@ -89,12 +89,15 @@ local mappings = {
   --   "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
   --   "Buffers",
   -- },
-  ["e"] = { "<cmd>NeoTreeFocusToggle<cr>", "Explorer" },
+  -- ["e"] = { "<cmd>NeoTreeFocusToggle<cr>", "Explorer" },
+  ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
+  
   ["w"] = { "<cmd>w!<CR>", "Save" },
   ["q"] = { "<cmd>q!<CR>", "Quit" },
   -- ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   -- ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
   ["a"] = { "<cmd>AerialToggle<CR>", "Aerial" },
+  ["c"] = { "<cmd>bdelete!<cr>", "BufferLine Close" },
 
   g = {
     name = "Git",
@@ -104,6 +107,7 @@ local mappings = {
     c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
   },
 
+  
   s = {
     name = "Search",
      b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },

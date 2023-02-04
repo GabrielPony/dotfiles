@@ -53,7 +53,7 @@ plugins = {
     -- keys = {
     --   { "<leader>e", "<cmd>NvimTreeToggle<CR>", desc = "File Explorer" },
     -- },
-    enabled = false,
+    -- enabled = false,
   },
   {
     "nvim-neo-tree/neo-tree.nvim",
@@ -67,6 +67,7 @@ plugins = {
       "MunifTanjim/nui.nvim",
       "s1n7ax/nvim-window-picker",
     },
+    enabled = false,
   },
   {
     "TimUntersberger/neogit",
@@ -216,6 +217,31 @@ plugins = {
       "cuda",
       "proto",
     },
+  },
+  {
+    "nvim-lualine/lualine.nvim",
+    config = function()
+      require "interface.lualine"
+    end,
+    dependencies = {
+      { "kyazdani42/nvim-web-devicons" },
+      -- { "ofseed/lualine-copilot" },
+    },
+  },
+  {
+    "akinsho/nvim-bufferline.lua",
+    config = function()
+      require "interface.bufferline"
+    end,
+    dependencies = { "kyazdani42/nvim-web-devicons" },
+  },
+  {
+    "iamcco/markdown-preview.nvim",
+    config = function()
+      require "tool.markdown-preview"
+    end,
+    build = "cd app && yarn install",
+    ft = { "markdown" },
   },
   {
     "onsails/lspkind-nvim",
