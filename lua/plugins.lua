@@ -15,36 +15,227 @@ end
 vim.opt.rtp:prepend(lazypath)
 -- vim.opt.runtimepath:prepend(lazypath)
 plugins = {
-    {
-        "navarasu/onedark.nvim",
-        name = "onedark",
-        config = function()
-          require "colorscheme.onedark"
-        end,
-    },
-    {
-      "rose-pine/neovim",
-      name = "rose-pine",
+  {
+    "goolord/alpha-nvim",
+    config = function()
+      require "interface.alpha"
+    end,
+  },
+  {
+      "navarasu/onedark.nvim",
+      name = "onedark",
       config = function()
-        require "colorscheme.rose-pine"
+        require "colorscheme.onedark"
       end,
-    },
-    {
-      "nvim-tree/nvim-tree.lua",
+  },
+  {
+      "catppuccin/nvim",
+      name = "catppuccin",
       config = function()
-        require "tool.nvim-tree"
+        require "colorscheme.catppuccin"
       end,
-      dependencies = { "kyazdani42/nvim-web-devicons" },
-      keys = {
-        { "<leader>e", "<cmd>NvimTreeToggle<CR>", desc = "File Explorer" },
-      },
+      build = ":CatppuccinCompile",
+  },
+
+  {
+    "rose-pine/neovim",
+    name = "rose-pine",
+    config = function()
+      require "colorscheme.rose-pine"
+    end,
+  },
+  {
+    "nvim-tree/nvim-tree.lua",
+    config = function()
+      require "tool.nvim-tree"
+    end,
+    dependencies = { "kyazdani42/nvim-web-devicons" },
+    -- keys = {
+    --   { "<leader>e", "<cmd>NvimTreeToggle<CR>", desc = "File Explorer" },
+    -- },
+    enabled = false,
+  },
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    config = function()
+      require "tool.neo-tree"
+    end,
+    branch = "v2.x",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
+      "s1n7ax/nvim-window-picker",
     },
-    {
-      "folke/which-key.nvim",
-      config = function()
-        require "core.which-key"
-      end,
+  },
+  {
+    "TimUntersberger/neogit",
+    config = function()
+      require "tool.neo-git"
+    end,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "sindrets/diffview.nvim",
     },
+    -- keys = {
+    --   { "<leader>gg", "<Cmd>Neogit<CR>", desc = "Open Neogit" },
+    -- },
+  },
+  {
+    "sindrets/diffview.nvim",
+    config = function()
+      require "tool.diffview"
+    end,
+    -- keys = {
+    --   { "<leader>gdo", "<Cmd>DiffviewOpen<CR>", desc = "Open" },
+    --   { "<leader>gdc", "<Cmd>DiffviewClose<CR>", desc = "Close" },
+    --   { "<leader>gdh", "<Cmd>DiffviewFileHistory<CR>", desc = "Open History" },
+    -- },
+  },
+  {
+    "stevearc/aerial.nvim",
+    config = function()
+      require "tool.aerial"
+    end,
+    -- keys = {
+    --   { "<leader>a", "<Cmd>AerialToggle<CR>", desc = "Outline" },
+    -- },
+  },
+  {
+    "mfussenegger/nvim-dap",
+    config = function()
+      require "debug.dap"
+    end,
+  },
+  {
+    "folke/noice.nvim",
+    config = function()
+      require "interface.noice"
+    end,
+    dependencies = {
+      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+      "MunifTanjim/nui.nvim",
+      -- OPTIONAL:
+      --   `nvim-notify` is only needed, if you want to use the notification view.
+      --   If not available, we use `mini` as the fallback
+      "rcarriga/nvim-notify",
+    },
+  },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    config = function()
+      require "core.treesitter"
+    end,
+    dependencies = {
+      { "nvim-treesitter/nvim-treesitter-textobjects" },
+      { "nvim-treesitter/nvim-treesitter-refactor" },
+      { "windwp/nvim-ts-autotag" },
+      { "mrjones2014/nvim-ts-rainbow" },
+      { "RRethy/nvim-treesitter-endwise" },
+      { "RRethy/nvim-treesitter-textsubjects", enabled = false },
+      { "JoosepAlviste/nvim-ts-context-commentstring" },
+    },
+  },
+  {
+    "nvim-telescope/telescope.nvim",
+    config = function()
+      require "efficiency.telescope"
+    end,
+    dependencies = {
+      { "nvim-lua/popup.nvim" },
+      { "nvim-lua/plenary.nvim" },
+      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+      { "nvim-telescope/telescope-live-grep-args.nvim" },
+      { "nvim-telescope/telescope-hop.nvim" },
+      { "nvim-telescope/telescope-project.nvim" },
+      { "nvim-telescope/telescope-media-files.nvim" },
+      { "nvim-telescope/telescope-dap.nvim" },
+      { "benfowler/telescope-luasnip.nvim" },
+    },
+    branch = "0.1.x",
+    event = "VeryLazy",
+  },
+  {
+    "akinsho/nvim-toggleterm.lua",
+    config = function()
+      require "tool.toggleterm"
+    end,
+    version = "v2.*",
+  },
+  {
+    "neovim/nvim-lspconfig",
+    config = function()
+      require "core.lspconfig"
+    end,
+    dependencies = { "williamboman/mason-lspconfig.nvim" },
+    after = "mason.nvim",
+  },
+  {
+    "L3MON4D3/LuaSnip",
+    config = function()
+      require "edit.snip"
+    end,
+    event = "VeryLazy",
+  },
+  {
+    "williamboman/mason.nvim",
+    config = function()
+      require "core.mason"
+    end,
+  },
+  {
+    "hrsh7th/nvim-cmp",
+    config = function()
+      require "edit.cmp"
+    end,
+    dependencies = {
+      { "hrsh7th/cmp-buffer" },
+      { "hrsh7th/cmp-nvim-lsp" },
+      { "hrsh7th/cmp-nvim-lsp-signature-help" },
+      { "hrsh7th/cmp-buffer" },
+      { "hrsh7th/cmp-path" },
+      { "hrsh7th/cmp-cmdline" },
+      { "hrsh7th/cmp-calc" },
+      { "saadparwaiz1/cmp_luasnip" },
+      { "kristijanhusak/vim-dadbod-completion" },
+      { "lukas-reineke/cmp-under-comparator" },
+    },
+    event = "VeryLazy",
+  },
+  {
+    "p00f/clangd_extensions.nvim",
+    config = function()
+      require "language.clangd_extensions"
+    end,
+    ft = {
+      "c",
+      "cpp",
+      "objc",
+      "objcpp",
+      "cuda",
+      "proto",
+    },
+  },
+  {
+    "onsails/lspkind-nvim",
+    config = function()
+      require "interface.lspkind"
+    end,
+  },
+  {
+    "kevinhwang91/nvim-ufo",
+    config = function()
+      require "interface.ufo"
+    end,
+    dependencies = "kevinhwang91/promise-async",
+  },
+  {
+    "folke/which-key.nvim",
+    config = function()
+      require "core.which-key"
+    end,
+  },
 }
 
 options = {

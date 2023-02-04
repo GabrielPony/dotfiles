@@ -4,6 +4,9 @@ if not ok then
   return
 end
 
+vim.o.timeout = true
+vim.o.timeoutlen = 300
+
 key.setup {
   plugins = {
     marks = true, -- shows a list of your marks on ' and `
@@ -46,7 +49,7 @@ key.setup {
   window = {
     border = "none", -- none, single, double, shadow
     position = "bottom", -- bottom, top
-    margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
+    margin = { 1, 1, 1, 1 }, -- extra window margin [top, right, bottom, left]
     padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
     winblend = 0,
   },
@@ -54,7 +57,7 @@ key.setup {
     height = { min = 4, max = 25 }, -- min and max height of the columns
     width = { min = 20, max = 50 }, -- min and max width of the columns
     spacing = 3, -- spacing between columns
-    align = "left", -- align columns left, center or right
+    align = "center", -- align columns left, center or right
   },
   ignore_missing = false, -- enable this to hide mappings for which you didn't specify a label
   hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ ", "<Plug>", "require" }, -- hide mapping boilerplate
@@ -70,38 +73,62 @@ key.setup {
   },
 }
 
-key.register {
-  ["s"] = { name = "+hop" },
-  ["["] = { name = "+prev" },
-  ["]"] = { name = "+next" },
-  ["g"] = { name = "+goto" },
-  ["<leader>"] = {
-    name = "+<leader>",
-    ["<leader>"] = { name = "+<localleader>" },
-    ["f"] = {
-      name = "+find",
-      ["d"] = { name = "+debug" },
-    },
-    ["g"] = {
-      name = "+git",
-      ["d"] = { name = "+diffview" },
-    },
-    ["s"] = {
-      name = "+session",
-      ["c"] = { name = "+current" },
-    },
-    ["b"] = {
-      name = "+buffer",
-      ["s"] = { name = "+sort" },
-    },
-    ["l"] = {
-      name = "+lsp",
-      ["w"] = { name = "+workspace" },
-    },
-    ["r"] = { name = "+tasks" },
-    ["d"] = { name = "+debug" },
-    ["t"] = { name = "+toggle" },
-    ["o"] = { name = "+open" },
-    ["h"] = { name = "+hop" },
+  
+local opts = {
+  mode = "n", -- NORMAL mode
+  prefix = "<leader>",
+  buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+  silent = true, -- use `silent` when creating keymaps
+  noremap = true, -- use `noremap` when creating keymaps
+  nowait = true, -- use `nowait` when creating keymaps
+}
+
+local mappings = {
+  -- ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
+  -- ["b"] = {
+  --   "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+  --   "Buffers",
+  -- },
+  ["e"] = { "<cmd>NeoTreeFocusToggle<cr>", "Explorer" },
+  ["w"] = { "<cmd>w!<CR>", "Save" },
+  ["q"] = { "<cmd>q!<CR>", "Quit" },
+  -- ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
+  -- ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
+  ["a"] = { "<cmd>AerialToggle<CR>", "Aerial" },
+
+  g = {
+    name = "Git",
+    d = { "<cmd>DiffviewOpen<cr>", "Git Diff" },
+    s = { "<cmd>Telescope git_status<cr>", "Open changed file" },
+    b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
+    c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
+  },
+
+  s = {
+    name = "Search",
+     b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
+     c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
+     f = { "<cmd>Telescope find_files<cr>", "Find Files" },
+     g = { "<cmd>Telescope live_grep<cr>", "Find Words" },
+     h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
+     r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
+     k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
+     C = { "<cmd>Telescope commands<cr>", "Commands" },
+   },
+   t = {
+    name = "Terminal",
+    f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
+    h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
+    v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
   },
 }
+
+key.register(mappings, opts)
+
+
+-- normal
+
+
+-- In Aerial
+-- <C-j> view prev 
+-- <C-k> view next 
