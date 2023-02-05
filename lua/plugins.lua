@@ -235,10 +235,15 @@ plugins = {
     end,
     dependencies = { "kyazdani42/nvim-web-devicons" },
   },
+  -- {
+  --   "iamcco/markdown-preview.nvim",
+  --   run = function() vim.fn["mkdp#util#install"]() end,
+  -- },
   {
     "iamcco/markdown-preview.nvim",
     config = function()
       require "tool.markdown-preview"
+      vim.fn["mkdp#util#install"]()
     end,
     build = "cd app && yarn install",
     ft = { "markdown" },

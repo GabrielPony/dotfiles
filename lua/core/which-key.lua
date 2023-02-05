@@ -99,6 +99,7 @@ local mappings = {
   ["a"] = { "<cmd>AerialToggle<CR>", "Aerial" },
   ["c"] = { "<cmd>bdelete!<cr>", "BufferLine Close" },
 
+  ["m"] = { "<cmd>MarkdownPreviewToggle<cr>", "Markdown Preview"},
   g = {
     name = "Git",
     d = { "<cmd>DiffviewOpen<cr>", "Git Diff" },
