@@ -2,8 +2,8 @@ local options = {
       -- Edit
       ts=4,
       expandtab = true,
-      -- softtabstop = 2,
-      -- shiftwidth = 2,
+      softtabstop = 4,
+      shiftwidth = 4,
       smarttab = true,
       --	nobackup = true,
       swapfile = true,
