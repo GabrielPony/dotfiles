@@ -253,6 +253,23 @@ plugins = {
         config = function()
             require "core.which-key"
         end
+    },
+    {
+        "windwp/nvim-autopairs",
+        config = function()
+            require "edit.autopairs"
+        end,
+        event = "VeryLazy"
+    },
+    {
+        "jose-elias-alvarez/null-ls.nvim",
+        config = function()
+            require "core.null-ls"
+        end,
+        dependencies = {
+            {"nvim-lua/plenary.nvim"},
+            {"neovim/nvim-lspconfig"}
+        }
     }
 }
 

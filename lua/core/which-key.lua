@@ -91,6 +91,10 @@ local mappings = {
     ["a"] = {"<cmd>AerialToggle<CR>", "Aerial"},
     ["c"] = {"<cmd>bdelete!<cr>", "BufferLine Close"},
     ["m"] = {"<cmd>MarkdownPreviewToggle<cr>", "Markdown Preview"},
+    ["l"] = {
+        name = "LSP",
+        f = {"<cmd>lua vim.lsp.buf.format(nil, 10000)<cr>", "Lsp Format"},
+    },
     g = {
         name = "Git",
         d = {"<cmd>DiffviewOpen<cr>", "Git Diff"},
