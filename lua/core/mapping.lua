@@ -1,6 +1,6 @@
-local opts = { noremap = true, silent = true }
+local opts = {noremap = true, silent = true}
 
-local term_opts = { silent = true }
+local term_opts = {silent = true}
 
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
@@ -40,7 +40,7 @@ keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
 keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 
 -- Insert --
--- Press jk fast to exit insert mode 
+-- Press jk fast to exit insert mode
 keymap("i", "jk", "<ESC>", opts)
 
 -- Visual --
@@ -59,4 +59,3 @@ keymap("i", "jk", "<ESC>", opts)
 -- keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 -- keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 -- keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
-

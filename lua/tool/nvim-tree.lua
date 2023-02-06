@@ -28,9 +28,7 @@ tree.setup {
         centralize_selection = false,
         width = function()
             local columns = vim.go.columns
-            return
-                math.floor(columns * 0.2) > 25 and math.floor(columns * 0.2) or
-                    25
+            return math.floor(columns * 0.2) > 25 and math.floor(columns * 0.2) or 25
         end,
         hide_root_folder = false,
         side = "left",
@@ -40,9 +38,7 @@ tree.setup {
         signcolumn = "yes",
         mappings = {
             custom_only = false,
-            list = {
-                -- user mappings go here
-            }
+            list = {}
         },
         float = {
             enable = false,
@@ -153,7 +149,11 @@ tree.setup {
                 chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
                 exclude = {
                     filetype = {
-                        "notify", "packer", "qf", "diff", "fugitive",
+                        "notify",
+                        "packer",
+                        "qf",
+                        "diff",
+                        "fugitive",
                         "fugitiveblame"
                     },
                     buftype = {"nofile", "terminal", "help"}

@@ -4,69 +4,111 @@
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
     vim.fn.system {
-        "git", "clone", "--filter=blob:none", "--single-branch",
-        "https://github.com/folke/lazy.nvim.git", lazypath
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "--single-branch",
+        "https://github.com/folke/lazy.nvim.git",
+        lazypath
     }
 end
 vim.opt.rtp:prepend(lazypath)
 -- vim.opt.runtimepath:prepend(lazypath)
 plugins = {
-    {"goolord/alpha-nvim", config = function() require "interface.alpha" end},
+    {
+        "goolord/alpha-nvim",
+        config = function()
+            require "interface.alpha"
+        end
+    },
     {
         "navarasu/onedark.nvim",
         name = "onedark",
-        config = function() require "colorscheme.onedark" end
-    }, {
+        config = function()
+            require "colorscheme.onedark"
+        end
+    },
+    {
         "catppuccin/nvim",
         name = "catppuccin",
-        config = function() require "colorscheme.catppuccin" end,
+        config = function()
+            require "colorscheme.catppuccin"
+        end,
         build = ":CatppuccinCompile"
-    }, {
+    },
+    {
         "rose-pine/neovim",
         name = "rose-pine",
-        config = function() require "colorscheme.rose-pine" end
-    }, {
+        config = function()
+            require "colorscheme.rose-pine"
+        end
+    },
+    {
         "nvim-tree/nvim-tree.lua",
-        config = function() require "tool.nvim-tree" end,
+        config = function()
+            require "tool.nvim-tree"
+        end,
         dependencies = {"kyazdani42/nvim-web-devicons"}
         -- keys = {
         --   { "<leader>e", "<cmd>NvimTreeToggle<CR>", desc = "File Explorer" },
         -- },
         -- enabled = false,
-    }, {
+    },
+    {
         "nvim-neo-tree/neo-tree.nvim",
-        config = function() require "tool.neo-tree" end,
+        config = function()
+            require "tool.neo-tree"
+        end,
         branch = "v2.x",
         dependencies = {
-            "nvim-lua/plenary.nvim", "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
-            "MunifTanjim/nui.nvim", "s1n7ax/nvim-window-picker"
+            "nvim-lua/plenary.nvim",
+            "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
+            "MunifTanjim/nui.nvim",
+            "s1n7ax/nvim-window-picker"
         },
         enabled = false
-    }, {
+    },
+    {
         "TimUntersberger/neogit",
-        config = function() require "tool.neo-git" end,
+        config = function()
+            require "tool.neo-git"
+        end,
         dependencies = {"nvim-lua/plenary.nvim", "sindrets/diffview.nvim"}
         -- keys = {
         --   { "<leader>gg", "<Cmd>Neogit<CR>", desc = "Open Neogit" },
         -- },
-    }, {
+    },
+    {
         "sindrets/diffview.nvim",
-        config = function() require "tool.diffview" end
+        config = function()
+            require "tool.diffview"
+        end
         -- keys = {
         --   { "<leader>gdo", "<Cmd>DiffviewOpen<CR>", desc = "Open" },
         --   { "<leader>gdc", "<Cmd>DiffviewClose<CR>", desc = "Close" },
         --   { "<leader>gdh", "<Cmd>DiffviewFileHistory<CR>", desc = "Open History" },
         -- },
-    }, {
+    },
+    {
         "stevearc/aerial.nvim",
-        config = function() require "tool.aerial" end
+        config = function()
+            require "tool.aerial"
+        end
         -- keys = {
         --   { "<leader>a", "<Cmd>AerialToggle<CR>", desc = "Outline" },
         -- },
-    }, {"mfussenegger/nvim-dap", config = function() require "debug.dap" end},
+    },
+    {
+        "mfussenegger/nvim-dap",
+        config = function()
+            require "debug.dap"
+        end
+    },
     {
         "folke/noice.nvim",
-        config = function() require "interface.noice" end,
+        config = function()
+            require "interface.noice"
+        end,
         dependencies = {
             -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
             "MunifTanjim/nui.nvim", -- OPTIONAL:
@@ -74,23 +116,31 @@ plugins = {
             --   If not available, we use `mini` as the fallback
             "rcarriga/nvim-notify"
         }
-    }, {
+    },
+    {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
-        config = function() require "core.treesitter" end,
+        config = function()
+            require "core.treesitter"
+        end,
         dependencies = {
             {"nvim-treesitter/nvim-treesitter-textobjects"},
             {"nvim-treesitter/nvim-treesitter-refactor"},
-            {"windwp/nvim-ts-autotag"}, {"mrjones2014/nvim-ts-rainbow"},
+            {"windwp/nvim-ts-autotag"},
+            {"mrjones2014/nvim-ts-rainbow"},
             {"RRethy/nvim-treesitter-endwise"},
             {"RRethy/nvim-treesitter-textsubjects", enabled = false},
             {"JoosepAlviste/nvim-ts-context-commentstring"}
         }
-    }, {
+    },
+    {
         "nvim-telescope/telescope.nvim",
-        config = function() require "efficiency.telescope" end,
+        config = function()
+            require "efficiency.telescope"
+        end,
         dependencies = {
-            {"nvim-lua/popup.nvim"}, {"nvim-lua/plenary.nvim"},
+            {"nvim-lua/popup.nvim"},
+            {"nvim-lua/plenary.nvim"},
             {"nvim-telescope/telescope-fzf-native.nvim", build = "make"},
             {"nvim-telescope/telescope-live-grep-args.nvim"},
             {"nvim-telescope/telescope-hop.nvim"},
@@ -101,47 +151,76 @@ plugins = {
         },
         branch = "0.1.x",
         event = "VeryLazy"
-    }, {
+    },
+    {
         "akinsho/nvim-toggleterm.lua",
-        config = function() require "tool.toggleterm" end,
+        config = function()
+            require "tool.toggleterm"
+        end,
         version = "v2.*"
-    }, {
+    },
+    {
         "neovim/nvim-lspconfig",
-        config = function() require "core.lspconfig" end,
+        config = function()
+            require "core.lspconfig"
+        end,
         dependencies = {"williamboman/mason-lspconfig.nvim"},
         after = "mason.nvim"
-    }, {
+    },
+    {
         "L3MON4D3/LuaSnip",
-        config = function() require "edit.snip" end,
+        config = function()
+            require "edit.snip"
+        end,
         event = "VeryLazy"
     },
-    {"williamboman/mason.nvim", config = function() require "core.mason" end},
+    {
+        "williamboman/mason.nvim",
+        config = function()
+            require "core.mason"
+        end
+    },
     {
         "hrsh7th/nvim-cmp",
-        config = function() require "edit.cmp" end,
+        config = function()
+            require "edit.cmp"
+        end,
         dependencies = {
-            {"hrsh7th/cmp-buffer"}, {"hrsh7th/cmp-nvim-lsp"},
-            {"hrsh7th/cmp-nvim-lsp-signature-help"}, {"hrsh7th/cmp-buffer"},
-            {"hrsh7th/cmp-path"}, {"hrsh7th/cmp-cmdline"}, {"hrsh7th/cmp-calc"},
+            {"hrsh7th/cmp-buffer"},
+            {"hrsh7th/cmp-nvim-lsp"},
+            {"hrsh7th/cmp-nvim-lsp-signature-help"},
+            {"hrsh7th/cmp-buffer"},
+            {"hrsh7th/cmp-path"},
+            {"hrsh7th/cmp-cmdline"},
+            {"hrsh7th/cmp-calc"},
             {"saadparwaiz1/cmp_luasnip"},
             {"kristijanhusak/vim-dadbod-completion"},
             {"lukas-reineke/cmp-under-comparator"}
         },
         event = "VeryLazy"
-    }, {
+    },
+    {
         "p00f/clangd_extensions.nvim",
-        config = function() require "language.clangd_extensions" end,
+        config = function()
+            require "language.clangd_extensions"
+        end,
         ft = {"c", "cpp", "objc", "objcpp", "cuda", "proto"}
-    }, {
+    },
+    {
         "nvim-lualine/lualine.nvim",
-        config = function() require "interface.lualine" end,
+        config = function()
+            require "interface.lualine"
+        end,
         dependencies = {
             {"kyazdani42/nvim-web-devicons"}
             -- { "ofseed/lualine-copilot" },
         }
-    }, {
+    },
+    {
         "akinsho/nvim-bufferline.lua",
-        config = function() require "interface.bufferline" end,
+        config = function()
+            require "interface.bufferline"
+        end,
         dependencies = {"kyazdani42/nvim-web-devicons"}
     }, -- {
     --   "iamcco/markdown-preview.nvim",
@@ -158,13 +237,23 @@ plugins = {
     },
     {
         "onsails/lspkind-nvim",
-        config = function() require "interface.lspkind" end
-    }, {
+        config = function()
+            require "interface.lspkind"
+        end
+    },
+    {
         "kevinhwang91/nvim-ufo",
-        config = function() require "interface.ufo" end,
+        config = function()
+            require "interface.ufo"
+        end,
         dependencies = "kevinhwang91/promise-async"
     },
-    {"folke/which-key.nvim", config = function() require "core.which-key" end}
+    {
+        "folke/which-key.nvim",
+        config = function()
+            require "core.which-key"
+        end
+    }
 }
 
 options = {
@@ -244,16 +333,7 @@ options = {
             ---@type string[]
             paths = {}, -- add any custom paths here that you want to indluce in the rtp
             ---@type string[] list any plugins you want to disable here
-            disabled_plugins = {
-                -- "gzip",
-                -- "matchit",
-                -- "matchparen",
-                -- "netrwPlugin",
-                -- "tarPlugin",
-                -- "tohtml",
-                -- "tutor",
-                -- "zipPlugin",
-            }
+            disabled_plugins = {}
         }
     },
     -- lazy can generate helptags from the headings in markdown readme files,

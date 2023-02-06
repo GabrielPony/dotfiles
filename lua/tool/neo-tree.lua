@@ -69,9 +69,7 @@ tree.setup {
         position = "left",
         width = function()
             local columns = vim.go.columns
-            return
-                math.floor(columns * 0.2) > 25 and math.floor(columns * 0.2) or
-                    25
+            return math.floor(columns * 0.2) > 25 and math.floor(columns * 0.2) or 25
         end,
         mapping_options = {noremap = true, nowait = true},
         mappings = {
@@ -124,16 +122,9 @@ tree.setup {
             hide_dotfiles = false,
             hide_gitignored = true,
             hide_hidden = true, -- only works on Windows for hidden files/directories
-            hide_by_name = {
-                -- "node_modules"
-            },
-            hide_by_pattern = { -- uses glob style patterns
-                -- "*.meta"
-            },
-            never_show = { -- remains hidden even if visible is toggled to true
-                -- ".DS_Store",
-                -- "thumbs.db"
-            }
+            hide_by_name = {},
+            hide_by_pattern = {},
+            never_show = {}
         },
         follow_current_file = true, -- This will find and focus the file in the active buffer every
         -- time the current file is changed while the tree is open.
@@ -188,5 +179,4 @@ tree.setup {
     }
 }
 
-vim.keymap.set("n", "<leader>e", "<cmd>Neotree toggle<cr>",
-               {desc = "File Explorer"})
+vim.keymap.set("n", "<leader>e", "<cmd>Neotree toggle<cr>", {desc = "File Explorer"})
