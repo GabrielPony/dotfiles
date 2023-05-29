@@ -56,7 +56,7 @@ bufferline.setup {
         color_icons = true, --- true | false, -- whether or not to add the filetype icon highlights
         show_buffer_icons = true, -- true | false, -- disable filetype icons for buffers
         show_buffer_close_icons = true, -- true | false,
-        show_buffer_default_icon = true, -- true | false, -- whether or not an unrecognised filetype should show a default icon
+        -- show_buffer_default_icon = true, -- true | false, -- whether or not an unrecognised filetype should show a default icon
         show_close_icon = false, -- true | false,
         show_tab_indicators = true, -- true | false,
         persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
