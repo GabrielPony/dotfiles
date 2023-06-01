@@ -47,6 +47,7 @@ M.general = {
     -- new buffer
     ["<leader>b"] = { "<cmd> enew <CR>", "New buffer" },
     ["<leader>ch"] = { "<cmd> NvCheatsheet <CR>", "Mapping cheatsheet" },
+
     ["<leader>w"] = { "<cmd> w! <CR>", "Save"},
     ["<leader>q"] = { "<cmd> q! <CR>", "Quit"},
   },
@@ -209,7 +210,7 @@ M.lspconfig = {
       "Goto next",
     },
 
-    ["<leader>q"] = {
+    ["<leader>lq"] = {
       function()
         vim.diagnostic.setloclist()
       end,
