@@ -1,3 +1,3 @@
-### NvChad Nvim 
-- This branch is referenced from NvChad
-- You can check this source code in [NvChad](https://github.com/NvChad/NvChad/tree/v2.0)
+# Example_config
+
+This can be used as an example custom config for NvChad, this branch is a minimal one. Do check the feature_full branch if you need all the ease in your config.
