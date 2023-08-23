@@ -1,6 +1,18 @@
 ---@type MappingsTable
 local M = {}
 
+-- Disable default key mappings
+M.disabled = {
+  n = {
+    ["<leader>q"] = "",
+    ["<leader>wa"] = "",
+    ["<leader>wr"] = "",
+    ["<leader>wl"] = "",
+    ["<leader>wK"] = "",
+    ["<leader>wk"] = "",
+  }
+}
+
 M.general = {
   n = {
     ["<leader>a"] = { "<cmd>AerialToggle!<CR>", "AerialToggle", opts = { nowait = true } },
@@ -9,6 +21,24 @@ M.general = {
   },
   i = {
     ["jk"] = {"<Esc>", "ESC"},
+  }
+}
+
+M.whichkey = {
+  n = {
+    ["WK"] = {
+      function()
+        vim.cmd "WhichKey"
+      end,
+      "Which-key all keymaps",
+    },
+    ["Wk"] = {
+      function()
+        local input = vim.fn.input "WhichKey: "
+        vim.cmd("WhichKey " .. input)
+      end,
+      "Which-key query lookup",
+    },
   }
 }
 
