@@ -10,22 +10,22 @@ M.disabled = {
     ["<leader>wl"] = "",
     ["<leader>wK"] = "",
     ["<leader>wk"] = "",
-  }
+  },
 }
 
 M.general = {
   n = {
-    ["<leader>a"] = { "<cmd>AerialToggle!<CR>", "AerialToggle", opts = { nowait = true } },
-    ["<leader>w"] = { "<cmd> w! <CR>", "Save"},
-    ["<leader>q"] = { "<cmd> q! <CR>", "Quit"},
-    ["<A-Up>"] = { "<cmd> resize -2<CR>", "Resize Up"},
-    ["<A-Down>"] = { "<cmd> resize +2<CR>", "Resize Down"},
-    ["<A-Left>"] = { "<cmd> vertical resize -2<CR>", "Resize Left"},
-    ["<A-Right>"] = { "<cmd> vertical resize +2<CR>", "Resize Right"},
+    ["<leader>a"] = { "<cmd>AerialToggle!<CR>", "Aerial Toggle", opts = { nowait = true } },
+    ["<leader>w"] = { "<cmd> w! <CR>", "Save" },
+    ["<leader>q"] = { "<cmd> q! <CR>", "Quit" },
+    ["<A-Up>"] = { "<cmd> resize -2<CR>", "Resize Up" },
+    ["<A-Down>"] = { "<cmd> resize +2<CR>", "Resize Down" },
+    ["<A-Left>"] = { "<cmd> vertical resize -2<CR>", "Resize Left" },
+    ["<A-Right>"] = { "<cmd> vertical resize +2<CR>", "Resize Right" },
   },
   i = {
-    ["jk"] = {"<Esc>", "ESC"},
-  }
+    ["jk"] = { "<Esc>", "ESC" },
+  },
 }
 
 M.whichkey = {
@@ -43,7 +43,14 @@ M.whichkey = {
       end,
       "Which-key query lookup",
     },
-  }
+  },
+}
+
+M.telescope = {
+  plugin = true,
+  n = {
+    ["<leader>fs"] = { "<cmd> Telescope grep_string <CR>", "Find focus words" },
+  },
 }
 
 M.lspconfig = {
