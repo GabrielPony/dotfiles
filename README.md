@@ -1,11 +1,34 @@
-### Gabriel's DotFiles
+# AstroNvim Template
 
-#### Branches
+**NOTE:** This is for AstroNvim v4+
 
-| No. | Branch | Description                               |
-| --- | ------ | ----------------------------------------- |
-| 1   | main   | README.md file to describe this repo      |
-| 2   | vim    | The configuration of vim                  |
-| 3   | Nvchad | The custom configuration of NvChad (Nvim) |
-| 4   | i3wm   | The configuration of i3 windows manger    |
-| 5   | tmux   | The configuration of tmux                 |
+A template for getting started with [AstroNvim](https://github.com/AstroNvim/AstroNvim)
+
+## 🛠️ Installation
+
+#### Make a backup of your current nvim and shared folder
+
+```shell
+mv ~/.config/nvim ~/.config/nvim.bak
+mv ~/.local/share/nvim ~/.local/share/nvim.bak
+mv ~/.local/state/nvim ~/.local/state/nvim.bak
+mv ~/.cache/nvim ~/.cache/nvim.bak
+```
+
+#### Create a new user repository from this template
+
+Press the "Use this template" button above to create a new repository to store your user configuration.
+
+You can also just clone this repository directly if you do not want to track your user configuration in GitHub.
+
+#### Clone the repository
+
+```shell
+git clone https://github.com/<your_user>/<your_repository> ~/.config/nvim
+```
+
+#### Start Neovim
+
+```shell
+nvim
+```
