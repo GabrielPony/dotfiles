@@ -469,7 +469,6 @@ set -g @plugin 'catppuccin/tmux#latest'
 set -g @plugin 'tmux-plugins/tmux-copycat'
 set -g @plugin 'tmux-plugins/tmux-yank'
 set -g @plugin 'tmux-plugins/tmux-cpu'
-set -g @plugin 'tmux-plugins/tmux-net-speed'
 set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @plugin 'tmux-plugins/tmux-continuum'
 
@@ -500,10 +499,6 @@ set -g status-right "#{E:@catppuccin_status_session}#{E:@catppuccin_status_user}
 set -g pane-border-status bottom
 set -g pane-border-format "───────────────────────────────────────────────"
 # set -g pane-border-style fg=XXX
-
-set -g @net_speed_interfaces "eth0"
-set -g @net_speed_format "⬇:%3s ⬆:%3s"
-set -g @continuum-restore 'no'
 
 
 # -- custom variables ----------------------------------------------------------
