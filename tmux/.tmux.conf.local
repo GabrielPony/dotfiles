@@ -465,7 +465,7 @@ tmux_conf_uninstall_plugins_on_reload=false
 
 # to enable a plugin, use the 'set -g @plugin' syntax:
 # visit https://github.com/tmux-plugins for available plugins
-set -g @plugin 'catppuccin/tmux#latest'
+set -g @plugin 'catppuccin/tmux'
 set -g @plugin 'tmux-plugins/tmux-copycat'
 set -g @plugin 'tmux-plugins/tmux-yank'
 set -g @plugin 'tmux-plugins/tmux-cpu'
