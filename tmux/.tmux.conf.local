@@ -377,6 +377,7 @@ tmux_conf_urlscan_options="--compact --dedupe"
 # this is the place to override or undo settings
 
 # set escape-time
+
 set -sg escape-time 10
 
 # add reload config bind-key
@@ -387,6 +388,12 @@ bind-key r source-file ~/.config/tmux/tmux.conf \; display "Reloaded!"
 # and unset when Neovim exits or suspends; note that this means you'll probably
 # not want to lazy-load smart-splits.nvim, as the variable won't be set until
 # the plugin is loaded
+
+bind - split-window -v -c "#{pane_current_path}"
+bind = split-window -h -c "#{pane_current_path}"
+
+bind-key p previous-window
+bind-key n next-window
 
 # Smart pane switching with awareness of Neovim splits.
 bind-key -n C-h if -F "#{@pane-is-vim}" 'send-keys C-h'  'select-pane -L'
@@ -409,7 +416,7 @@ bind-key -n M-l if -F "#{@pane-is-vim}" 'send-keys M-l' 'resize-pane -R 3'
 #set -g history-limit 10000
 
 # start with mouse mode enabled
-set -g mouse on
+set -g mouse off
 
 # force Vi mode
 #   really you should export VISUAL or EDITOR environment variable, see manual
@@ -427,8 +434,6 @@ set -g mouse on
 # bind c new-window -c '#{pane_current_path}' #!important
 
 # move status line to top
-set -g status-position bottom
-
 
 # -- tpm -----------------------------------------------------------------------
 
@@ -465,6 +470,7 @@ tmux_conf_uninstall_plugins_on_reload=false
 
 # to enable a plugin, use the 'set -g @plugin' syntax:
 # visit https://github.com/tmux-plugins for available plugins
+
 set -g @plugin 'catppuccin/tmux'
 set -g @plugin 'tmux-plugins/tmux-copycat'
 set -g @plugin 'tmux-plugins/tmux-yank'
@@ -472,32 +478,18 @@ set -g @plugin 'tmux-plugins/tmux-cpu'
 set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @plugin 'tmux-plugins/tmux-continuum'
 
+# set -g @catppuccin_status_background "none"
+
 set -g @catppuccin_flavor 'frappe'
-set -g @catppuccin_window_status_style "custom"  #basic/rounded/slanted/none/custom
-set -g @catppuccin_window_left_separator "█"
-set -g @catppuccin_window_middle_separator "█"
-set -g @catppuccin_window_right_separator "█"
-set -g @catppuccin_status_default "off"
-set -g @catppuccin_status_background "none"
-set -g @catppuccin_status_left_separator " "
-set -g @catppuccin_status_right_separator ""
-set -g @catppuccin_status_connect_separator "no"
-set -g @catppuccin_status_background "none"
-set -g @catppuccin_date_time_text "%Y-%m-%d %I:%M %p"
-#set -g @catppuccin_pane_border_style "fg=#{@thm_surface_0}"
-#set -g @catppuccin_pane_active_border_style "fg=#{@thm_peach}"
+set -g status-right "#{E:@catppuccin_status_user}#{E:@catppuccin_status_host}#{E:@catppuccin_status_date_time}"
+set -g status-right-length 100
+set -g status-left-length 100
+set -g status-left ""
 
-set -g @catppuccin_window_default_text " #W"
-set -g @catppuccin_window_current_text " #W"
-
-set -g status-left  ""
-set -g status-right "#{E:@catppuccin_status_session}#{E:@catppuccin_status_user}#{E:@catppuccin_status_host}#{E:@catppuccin_status_date_time}"
-
-#set -g status 2
-#set -g status-format[1] ""
-
+set -g status-position bottom
 set -g pane-border-status bottom
 set -g pane-border-format "───────────────────────────────────────────────"
+
 # set -g pane-border-style fg=XXX
 
 
