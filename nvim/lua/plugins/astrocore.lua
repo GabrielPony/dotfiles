@@ -23,6 +23,7 @@ return {
 		-- vim options can be configured here
 		options = {
 			opt = { -- vim.opt.<key>
+				expandtab = true;
 				shiftwidth = 4,
 				tabstop = 4,
 				softtabstop = 4,
