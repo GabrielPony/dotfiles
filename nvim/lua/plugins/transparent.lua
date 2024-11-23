@@ -60,7 +60,28 @@ return {
         "NotifyDEBUGBorder",
         "NotifyTRACEBorder",
         "WhichKeyFloat",
+        -- UFO 相关的组
+        "UfoFoldedBg",
+        "UfoFoldedFg",
+        "UfoPreviewSbar",
+        "UfoPreviewThumb",
+        "UfoPreviewWinBar",
+        "UfoPreviewCursorLine",
+        "UfoFoldedEllipsis",
+        "UfoCursorFoldedLine",
+        "UfoPreviewNormal",
+        "UfoPreviewBorder",
+        "UfoFoldedLinehl",
+        -- 折叠预览窗口的背景
+        "Folded",
+        "FoldColumn",
+        "FloatBorder",
+        "NormalFloat",
+
       },
     },
   },
 }
+
+
+
