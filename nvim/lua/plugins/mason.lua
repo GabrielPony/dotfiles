@@ -8,6 +8,7 @@ return {
     -- overrides `require("mason-lspconfig").setup(...)`
     opts = {
       ensure_installed = {
+        "nil",
         "lua_ls",
         "pyright",
         -- add more arguments for adding more language servers
@@ -20,6 +21,7 @@ return {
     -- overrides `require("mason-null-ls").setup(...)`
     opts = {
       ensure_installed = {
+        "nixpkgs-fmt",
         "stylua",
         "black",
         "clang-format",
