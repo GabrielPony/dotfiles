@@ -8,7 +8,7 @@ return {
     -- overrides `require("mason-lspconfig").setup(...)`
     opts = {
       ensure_installed = {
-        "nil",
+        "nil_ls",
         "lua_ls",
         "pyright",
         -- add more arguments for adding more language servers
