@@ -23,6 +23,7 @@ return {
     end,
   },
 
+  { "echasnovski/mini.nvim", version = false },
   -- -- You can disable default plugins as follows:
   -- { "max397574/better-escape.nvim", enabled = false },
   --
