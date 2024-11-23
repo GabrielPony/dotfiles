@@ -8,7 +8,9 @@ return {
     -- overrides `require("mason-lspconfig").setup(...)`
     opts = {
       ensure_installed = {
+        "lua-language-server",
         "lua_ls",
+        "pyright",
         -- add more arguments for adding more language servers
       },
     },
@@ -20,6 +22,9 @@ return {
     opts = {
       ensure_installed = {
         "stylua",
+        "black",
+        "clang-format",
+        "prettier",
         -- add more arguments for adding more null-ls sources
       },
     },
@@ -30,6 +35,7 @@ return {
     opts = {
       ensure_installed = {
         "python",
+        "cpptools",
         -- add more arguments for adding more debuggers
       },
     },
