@@ -77,6 +77,7 @@ return {
         "FoldColumn",
         "FloatBorder",
         "NormalFloat",
+        "ColorColumn",
 
       },
     },

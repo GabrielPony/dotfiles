@@ -7,7 +7,7 @@ return {
       null_ls.builtins.formatting.nixpkgs_fmt,
 
       null_ls.builtins.formatting.stylua.with({
-        extra_args = { "--print-width=120", "--indent-type=Spaces", "--indent-width=4" },
+        extra_args = { "--indent-type=Spaces", "--indent-width=4" },
       }),
 
       null_ls.builtins.formatting.black.with({
