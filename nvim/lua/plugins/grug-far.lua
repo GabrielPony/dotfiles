@@ -10,6 +10,7 @@ return {
         local ext = vim.bo.buftype == "" and vim.fn.expand("%:e")
         grug.open({
           transient = true,
+          startInInsertMode = false,
           prefills = {
             filesFilter = ext and ext ~= "" and "*." .. ext or nil,
           },
