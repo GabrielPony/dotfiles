@@ -11,6 +11,7 @@ return {
         "nil_ls",
         "lua_ls",
         "pyright",
+        "clangd",
         -- add more arguments for adding more language servers
       },
     },
