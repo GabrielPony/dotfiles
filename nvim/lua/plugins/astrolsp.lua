@@ -38,16 +38,6 @@ return {
     -- enable servers that you already have installed without mason
     servers = {
       -- "pyright"
-      "lua-language-server",
-      "nixpkgs-fmt",
-      "selene",
-      "stylua",
-      "debugpy",
-      "clangd",
-      "clang-format",
-      "black",
-      "nil",
-      "pyright",
     },
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields

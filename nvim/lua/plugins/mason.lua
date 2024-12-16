@@ -42,4 +42,15 @@ return {
       },
     },
   },
+  {
+    "williamboman/mason.nvim",
+    opts = function(_, opts)
+      -- Where Mason should put its bin location in your PATH. Can be one of:
+      -- - "prepend" (default, Mason's bin location is put first in PATH)
+      -- - "append" (Mason's bin location is put at the end of PATH)
+      -- - "skip" (doesn't modify PATH)
+      ---@type '"prepend"' | '"append"' | '"skip"'
+      opts.PATH = "append" -- use mason's package only when no other package is found
+    end,
+  },
 }
