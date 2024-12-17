@@ -13,7 +13,7 @@ return {
             callback = function()
               local cursor_pos = vim.api.nvim_win_get_cursor(0)
               vim.cmd([[%s/\s\+$//e]])
-              vim.bo.fileformat = "unix"
+              vim.cmd([[%s/\r//g]])
               vim.api.nvim_win_set_cursor(0, cursor_pos)
             end,
           },
