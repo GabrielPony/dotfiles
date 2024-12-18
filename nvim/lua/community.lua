@@ -15,5 +15,11 @@ return {
     { import = "astrocommunity.colorscheme.kanagawa-nvim" },
     { import = "astrocommunity.color.vim-highlighter" },
     { import = "astrocommunity.color.transparent-nvim" },
+    { import = "astrocommunity.note-taking.obsidian-nvim" },
+    { import = "astrocommunity.markdown-and-latex.render-markdown-nvim" },
+    { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
+    { import = "astrocommunity.search.grug-far-nvim" },
+    { import = "astrocommunity.utility.noice-nvim" },
+
     -- import/override with your plugins folder
 }

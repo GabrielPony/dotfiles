@@ -6,6 +6,7 @@ return {
       "vim",
       "c",
       "cpp",
+      "nix",
       "python",
       "markdown",
       -- add more arguments for adding more treesitter parsers
