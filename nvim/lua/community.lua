@@ -20,9 +20,8 @@ return {
     { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
     { import = "astrocommunity.search.grug-far-nvim" },
     { import = "astrocommunity.utility.noice-nvim" },
-    
+    { import = "astrocommunity.completion.blink-cmp" },    
     -- TODO need change to this repo.
---    { import = "astrocommunity.completion.blink-cmp" },
 --    { import = "astrocommunity.fuzzy-finder.fzf-lua" },
 
 
