@@ -2,33 +2,34 @@ return {
 	"rebelot/heirline.nvim",
 	opts = function(_, opts)
 		local status = require("astroui.status")
-		local WorkDir = {
+		local FilePath = {
 			init = function(self)
-				self.icon =" "
-				local cwd = vim.fn.getcwd(0)
-				self.cwd = vim.fn.fnamemodify(cwd, ":~")
+				self.icon = " "
+				local buf_path = vim.api.nvim_buf_get_name(0)
+				self.file_path = vim.fn.fnamemodify(buf_path, ":~")
 			end,
 			hl = { fg = "grey", bold = true },
 
 			flexible = 1,
 
 			{
-				-- evaluates to the full-lenth path
 				provider = function(self)
-					local trail = self.cwd:sub(-1) == "/" and "" or "/"
-					return self.icon .. self.cwd .. trail .. " "
+					if self.file_path == "" then
+						return "" 
+					end
+					return self.icon .. self.file_path .. " "
 				end,
 			},
 			{
-				-- evaluates to the shortened path
 				provider = function(self)
-					local cwd = vim.fn.pathshorten(self.cwd)
-					local trail = self.cwd:sub(-1) == "/" and "" or "/"
-					return self.icon .. cwd .. trail .. " "
+					if self.file_path == "" then
+						return ""
+					end
+					local short_path = vim.fn.pathshorten(self.file_path)
+					return self.icon .. short_path .. " "
 				end,
 			},
 			{
-				-- evaluates to "", hiding the component
 				provider = "",
 			},
 		}
