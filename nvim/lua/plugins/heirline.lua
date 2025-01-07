@@ -41,7 +41,7 @@ return {
 			status.component.file_info(),
 			status.component.git_diff(),
 			status.component.diagnostics(),
-			status.component.builder(WorkDir),
+			status.component.builder(FilePath),
 			status.component.fill(),
 			status.component.cmd_info(),
 			status.component.fill(),
