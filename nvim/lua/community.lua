@@ -20,10 +20,9 @@ return {
     { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
     { import = "astrocommunity.search.grug-far-nvim" },
     { import = "astrocommunity.utility.noice-nvim" },
-    { import = "astrocommunity.completion.blink-cmp" },    
+    { import = "astrocommunity.completion.blink-cmp" },
+    { import = "astrocommunity.fuzzy-finder.fzf-lua" },
     -- TODO need change to this repo.
---    { import = "astrocommunity.fuzzy-finder.fzf-lua" },
-
 
     -- import/override with your plugins folder
 }
