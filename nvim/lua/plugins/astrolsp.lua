@@ -84,6 +84,29 @@ return {
           desc = "Declaration of current symbol",
           cond = "textDocument/declaration",
         },
+        gd = {
+          function()
+            local ok, fzf = pcall(require, 'fzf-lua')
+            if not ok then
+              vim.lsp.buf.definition()
+            else
+              fzf.lsp_definitions({
+                jump_to_single_result = true,
+                winopts = { preview = { layout = 'vertical', vertical = 'up:60%' } },
+              })
+            end
+          end,
+          desc = 'Goto definition',
+          cond = 'textDocument/definition',
+        },
+        gy = {
+          function()
+            require("fzf-lua").lsp_typedefs({
+              jump_to_single_result = true,
+            })
+          end,
+          desc = "Go to type definition (fzf-lua)",
+        },
         ["<Leader>uY"] = {
           function() require("astrolsp.toggles").buffer_semantic_tokens() end,
           desc = "Toggle LSP semantic highlight (buffer)",
