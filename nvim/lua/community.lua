@@ -6,7 +6,6 @@
 return {
     "AstroNvim/astrocommunity",
     { import = "astrocommunity.pack.lua" },
-    { import = "astrocommunity.scrolling.neoscroll-nvim" },
     { import = "astrocommunity.motion.flash-nvim" },
     { import = "astrocommunity.motion.marks-nvim" },
     { import = "astrocommunity.colorscheme.catppuccin" },
@@ -25,5 +24,6 @@ return {
     { import = "astrocommunity.editing-support.neogen" },
     -- TODO need change to this repo.
 
+    -- { import = "astrocommunity.scrolling.neoscroll-nvim" },
     -- import/override with your plugins folder
 }
