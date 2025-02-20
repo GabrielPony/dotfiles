@@ -1,6 +1,7 @@
 local exclude_opts = {
   "compile_commands.json", -- 多层目录匹配
-  ".git*",
+  ".log",
+  ".git",
   ".gitignore",
   ".repo",
   ".cache",
@@ -11,15 +12,17 @@ local exclude_opts = {
   ".arm.d",
   ".arm.o",
   ".mod",
-  ".mod.c"
+  ".mod.c",
+  ".bin",
+  ".tar"
 }
 
 local fd_exclude_args = vim.tbl_map(function(item)
-  return "--exclude " .. item
+  return '--exclude *' .. item .. '*'
 end, exclude_opts)
 
 local rg_exclude_args = vim.tbl_map(function(item)
-    return '-g "!' .. item .. '"'
+    return '-g "!*' .. item .. '*"'
 end, exclude_opts)
 
 
@@ -31,18 +34,25 @@ return {
 
     -- 合并 grep 配置，保留现有设置
     opts.grep = vim.tbl_deep_extend("force", opts.grep or {}, {
-      rg_opts        = "--column --line-number --no-heading --color=always --smart-case --hidden --no-ignore "
+      rg_opts        = "--column --line-number --no-heading --color=always --smart-case --no-ignore "
       .. table.concat(rg_exclude_args, " ") .. "--max-columns=4096 -e",
+      multiprocess      = true,           -- run command in a separate process
+      file_icons  = true,
+      color_icons = true,
+      git_icons   = false,
       no_header_i = true,
-      header = false,
+      no_header   = true
     })
 
     -- 合并 files 配置，保留现有设置
     opts.files = vim.tbl_deep_extend("force", opts.files or {}, {
       fd_opts = "--color=never --type f --hidden --follow --no-ignore " .. table.concat(fd_exclude_args, " "),
-      toggle_ignore_flag = "",
-      no_header_i = true,  -- 禁用交互式 header
+      multiprocess= true,           -- run command in a separate process
+      file_icons  = 1,
+      color_icons = true,
+      git_icons   = false,
       header = false,
+      no_header_i = true,  -- 禁用交互式 header
       cwd_prompt = false,
       actions = {
         ["ctrl-g"] = false
@@ -75,7 +85,5 @@ return {
       ["bg+"]     = { "bg", "CursorLine" },
       ["fg+"]     = { "fg", "CursorLine" },
     }
-
-    return opts
   end,
 }
