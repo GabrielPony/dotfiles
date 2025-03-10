@@ -73,7 +73,7 @@
   )
 
   # Basic style options that define the overall prompt look.
-  typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION=$'\ue712'
+  typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION=$'\uf0e7'
   typeset -g POWERLEVEL9K_BACKGROUND=                            # transparent background
   typeset -g POWERLEVEL9K_{LEFT,RIGHT}_{LEFT,RIGHT}_WHITESPACE=  # no surrounding whitespace
   typeset -g POWERLEVEL9K_{LEFT,RIGHT}_SUBSEGMENT_SEPARATOR=' '  # separate segments with a space
