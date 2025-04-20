@@ -107,6 +107,10 @@ return {
 					-- setting a mapping to false will disable it
 					-- ["<esc>"] = false,
 				},
+				i = {
+					-- 添加 jk 映射为 Esc
+					["jk"] = { "<Esc>", desc = "Escape insert mode" },
+				},
 			},
 		},
 	},
