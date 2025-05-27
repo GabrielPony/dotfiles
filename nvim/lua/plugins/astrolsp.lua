@@ -91,7 +91,7 @@ return {
               vim.lsp.buf.definition()
             else
               fzf.lsp_definitions({
-                jump_to_single_result = true,
+                jump1 = true,
                 winopts = { preview = { layout = 'vertical', vertical = 'up:60%' } },
               })
             end
@@ -102,7 +102,7 @@ return {
         gy = {
           function()
             require("fzf-lua").lsp_typedefs({
-              jump_to_single_result = true,
+              jump1 = true,
             })
           end,
           desc = "Go to type definition (fzf-lua)",
