@@ -25,6 +25,7 @@ local rg_exclude_args = vim.tbl_map(function(item)
     return '-g "!*' .. item .. '*"'
 end, exclude_opts)
 
+vim.env.FZF_DEFAULT_OPTS = "--color=bg:-1,bg+:-1,gutter:-1,fg:#ebdbb2,fg+:#fbf1c7,hl:#fabd2f,hl+:#fabd2f,info:#83a598,prompt:#bdae93,pointer:#83a598,marker:#fe8019,header:#665c54"
 
 return {
   "ibhagwan/fzf-lua",
