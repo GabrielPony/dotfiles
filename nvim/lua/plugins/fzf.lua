@@ -43,21 +43,51 @@ return {
       no_header_i = true,
       no_header   = true
     })
-
-    -- 合并 files 配置，保留现有设置
     opts.files = vim.tbl_deep_extend("force", opts.files or {}, {
       fd_opts = "--color=never --type f --hidden --follow --no-ignore " .. table.concat(fd_exclude_args, " "),
-      multiprocess= true,           -- run command in a separate process
-      file_icons  = 1,
+      multiprocess = true,
+      file_icons = 1,
       color_icons = true,
-      git_icons   = false,
+      git_icons = false,
       header = false,
-      no_header_i = true,  -- 禁用交互式 header
+      no_header_i = true,
       cwd_prompt = false,
       actions = {
         ["ctrl-g"] = false
-      }
+      },
+      -- 添加透明配置
+      winopts = {
+        backdrop = 60,        -- 背景透明度
+        border = "none",      -- 移除窗口边框
+        hl = {
+          normal = "Normal",
+          border = "FloatBorder",
+        },
+      },
+      -- fzf 原生透明选项
+      fzf_opts = {
+        ["--color"] = "bg:-1,bg+:-1,gutter:-1,fg:#ebdbb2,fg+:#fbf1c7,hl:#fabd2f,hl+:#fabd2f,info:#83a598,prompt:#bdae93,pointer:#83a598,marker:#fe8019,header:#665c54",
+        ["--border"] = "none",  -- 移除 fzf 边框
+        ["--margin"] = "0",     -- 移除边距
+        ["--padding"] = "0",    -- 移除内边距
+      },
     })
+
+
+    -- 合并 files 配置，保留现有设置
+    -- opts.files = vim.tbl_deep_extend("force", opts.files or {}, {
+    --   fd_opts = "--color=never --type f --hidden --follow --no-ignore " .. table.concat(fd_exclude_args, " "),
+    --   multiprocess= true,           -- run command in a separate process
+    --   file_icons  = 1,
+    --   color_icons = true,
+    --   git_icons   = false,
+    --   header = false,
+    --   no_header_i = true,  -- 禁用交互式 header
+    --   cwd_prompt = false,
+    --   actions = {
+    --     ["ctrl-g"] = false
+    --   }
+    -- })
 
     -- 窗口配置
     opts.winopts = {
