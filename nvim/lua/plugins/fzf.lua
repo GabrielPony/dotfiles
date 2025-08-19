@@ -60,10 +60,10 @@ return {
       winopts = {
         backdrop = 60,        -- 背景透明度
         border = "none",      -- 移除窗口边框
-        hl = {
-          normal = "Normal",
-          border = "FloatBorder",
-        },
+      },
+      hls = {
+        normal = "Normal",
+        border = "FloatBorder",
       },
       -- fzf 原生透明选项
       fzf_opts = {
