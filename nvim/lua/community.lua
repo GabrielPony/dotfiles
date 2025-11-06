@@ -20,7 +20,7 @@ return {
     { import = "astrocommunity.search.grug-far-nvim" },
     -- { import = "astrocommunity.utility.noice-nvim" },
     { import = "astrocommunity.completion.blink-cmp" },
-    { import = "astrocommunity.fuzzy-finder.fzf-lua" },
+    -- { import = "astrocommunity.fuzzy-finder.fzf-lua" },
     { import = "astrocommunity.editing-support.neogen" },
     -- TODO need change to this repo.
 

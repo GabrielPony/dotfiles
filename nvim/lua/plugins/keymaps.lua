@@ -7,6 +7,44 @@ return {
 				-- first key is the mode
 				n = {
 					-- navigate buffer tabs
+					["<Leader>ff"] = {
+						function()
+							require("snacks").picker.files {
+								hidden = require("config.hide_patterns"),
+								ignored = true,
+								exclude = require("config.file_excludes")
+							}
+						end,
+						desc = "Find files",
+					},
+					["<Leader>fc"] = {
+						function()
+							require("snacks").picker.grep_word {
+								ignored = true,
+								exclude = require("config.file_excludes")
+							}
+						end,
+						desc = "Find word under cursor (including ignored)",
+					},
+					-- Enhanced grep searches with file extension filtering
+					["<Leader>fw"] = {
+						function()
+							require("snacks").picker.grep {
+								exclude = require("config.file_excludes")
+							}
+						end,
+						desc = "Find words (filtered)",
+					},
+					["<Leader>fW"] = {
+						function()
+							require("snacks").picker.grep {
+								hidden = true,
+								ignored = true,
+								exclude = require("config.file_excludes")
+							}
+						end,
+						desc = "Find words in all files (filtered)",
+					},
 					["]b"] = {
 						function()
 							require("astrocore.buffer").nav(vim.v.count1)
