@@ -41,8 +41,8 @@
           dontBuild = true;
           installPhase = ''
             mkdir -p $out/config
-            cp -r ./nvim/* $out/config/
-            rm -rf $out/config/README.md
+            cp -r ./nvim $out/config/
+            rm -rf $out/config/nvim/README.md
           '';
         };
 
