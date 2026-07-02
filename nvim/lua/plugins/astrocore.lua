@@ -49,6 +49,7 @@ return {
 				wrap = false, -- sets vim.opt.wrap
 				colorcolumn = "120";
 				clipboard = "unnamedplus";
+				fillchars = { vert = " " }, -- hide the vertical window separator; separate windows by bg color instead
 			},
 			g = { -- vim.g.<key>
 				-- configure global vim variables (vim.g)

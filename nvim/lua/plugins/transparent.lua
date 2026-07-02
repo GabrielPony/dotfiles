@@ -8,9 +8,6 @@ return {
         "NormalFloat",
         "NormalNC",
         "NvimTreeNormal",
-        "NeoTreeNormal",
-        "NeoTreeNormalNC",
-        "NeoTreePreview",
         "NeoTreeTabInactive",
         "LineNr",
         "CursorColumn",
@@ -60,6 +57,34 @@ return {
         "NotifyDEBUGBorder",
         "NotifyTRACEBorder",
         "WhichKeyFloat",
+        "NeoTreeNormal",
+        "NeoTreeNormalNC",
+        "NeoTreeEndOfBuffer",
+        "NeoTreeTabActive",
+        "NeoTreeTabSeparatorInactive",
+        "NeoTreeTabSeparatorActive",
+        "AerialNormal",
+        "AerialNormalNC",
+        "GrugFarNormal",
+        "GrugFarHelpHeader",
+        "BlinkCmpMenu",
+        "BlinkCmpMenuBorder",
+        "BlinkCmpDoc",
+        "BlinkCmpDocBorder",
+        "BlinkCmpDocSeparator",
+        "BlinkCmpSignatureHelp",
+        "BlinkCmpSignatureHelpBorder",
+        "WhichKeyNormal",
+        "WhichKeyBorder",
+        "WhichKeyTitle",
+        "SnacksPickerInput",
+        "SnacksPickerInputBorder",
+        "SnacksPickerInputTitle",
+        "SnacksPickerList",
+        "SnacksPickerListBorder",
+        "SnacksPickerPreview",
+        "SnacksPickerPreviewBorder",
+        "SnacksPickerPreviewTitle",
         -- UFO 相关的组
         "UfoFoldedBg",
         "UfoFoldedFg",
@@ -81,6 +106,20 @@ return {
 
       },
     },
+    config = function(_, opts)
+      require("transparent").setup(opts)
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "TransparentClear",
+        desc = "Refresh panel highlights after transparency changes",
+        callback = function()
+          if package.loaded["astroui.status.heirline"] then
+            pcall(require("astroui.status.heirline").refresh_colors)
+          end
+          vim.cmd.redrawstatus()
+          vim.cmd.redrawtabline()
+        end,
+      })
+    end,
   },
 }
 

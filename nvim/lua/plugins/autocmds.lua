@@ -19,6 +19,24 @@ return {
             end,
           },
         },
+        panel_window_highlights = {
+          {
+            event = "FileType",
+            pattern = { "aerial", "grug-far", "grug-far-history", "grug-far-help" },
+            desc = "Use the neo-tree panel surface for side panels",
+            callback = function()
+              vim.wo.winhighlight = table.concat({
+                "Normal:NormalFloat",
+                "NormalNC:NormalFloat",
+                "EndOfBuffer:NeoTreeEndOfBuffer",
+                "SignColumn:NormalFloat",
+                "FoldColumn:NormalFloat",
+                "WinBar:NormalFloat",
+                "WinBarNC:NormalFloat",
+              }, ",")
+            end,
+          },
+        },
         -- nvim <folder>: cd + non-floating dashboard (no auto neo-tree)
         handle_directory = {
           {

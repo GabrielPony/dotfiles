@@ -8,6 +8,8 @@ return {
   "AstroNvim/astrolsp",
   ---@type AstroLSPOpts
   opts = {
+    -- Use Nvim 0.11+ native LSP configuration instead of deprecated lspconfig setup.
+    native_lsp_config = true,
     -- Configuration table of features provided by AstroLSP
     features = {
       codelens = true, -- enable/disable codelens refresh on start
@@ -85,27 +87,14 @@ return {
           cond = "textDocument/declaration",
         },
         gd = {
-          function()
-            local ok, fzf = pcall(require, 'fzf-lua')
-            if not ok then
-              vim.lsp.buf.definition()
-            else
-              fzf.lsp_definitions({
-                jump1 = true,
-                winopts = { preview = { layout = 'vertical', vertical = 'up:60%' } },
-              })
-            end
-          end,
-          desc = 'Goto definition',
-          cond = 'textDocument/definition',
+          function() require("snacks").picker.lsp_definitions() end,
+          desc = "Goto definition",
+          cond = "textDocument/definition",
         },
         gy = {
-          function()
-            require("fzf-lua").lsp_typedefs({
-              jump1 = true,
-            })
-          end,
-          desc = "Go to type definition (fzf-lua)",
+          function() require("snacks").picker.lsp_type_definitions() end,
+          desc = "Go to type definition",
+          cond = "textDocument/typeDefinition",
         },
         ["<Leader>uY"] = {
           function() require("astrolsp.toggles").buffer_semantic_tokens() end,
