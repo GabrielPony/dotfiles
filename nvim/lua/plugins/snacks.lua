@@ -241,6 +241,26 @@ return {
 							},
 						},
 					},
+					gagapony_bottom = {
+						preview = false,
+						layout = {
+							box = "vertical",
+							backdrop = false,
+							row = -1,
+							width = 0,
+							height = 0.4,
+							min_height = 20,
+							border = "none",
+							{
+								win = "input",
+								height = 1,
+								border = "none",
+								title = "{title} {live} {flags}",
+								title_pos = "left",
+							},
+							{ win = "list", border = "none" },
+						},
+					},
 					-- Borderless select layout, modelled on snacks' built-in `select` preset.
 					gagapony_select = {
 						hidden = { "preview" },
@@ -285,9 +305,7 @@ return {
 					grep_word = { exclude = require("config.hide_patterns"), live = true },
 					lines = {
 						layout = {
-							preset = function()
-								return vim.o.columns >= 120 and "gagapony" or "gagapony_vertical"
-							end,
+							preset = "gagapony_bottom",
 						},
 					},
 					select = { layout = { preset = "gagapony_select" } },
